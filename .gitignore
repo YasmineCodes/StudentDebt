@@ -7,7 +7,7 @@ ENV/
 env.bak/ 
 venv.bak/ 
 
-data/Scorecard.csv
+data/
 
 #
 # Visual Studio Code # 
