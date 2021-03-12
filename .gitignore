@@ -9,7 +9,11 @@ venv.bak/
 
 data/
 
-#
+#jupyter notebook
+.ipynb_checkpoints
+
+#Temporary source for api keys
+keys/
 # Visual Studio Code # 
 .vscode/* 
 !.vscode/settings.json 
