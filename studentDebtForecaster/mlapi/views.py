@@ -4,7 +4,6 @@ from rest_framework.response import Response
 from .utils import prep_ml_input, get_prediction
 
 
-
 class Prediction(APIView):
     def get(self, request, format=None):
         # Get input data from request object

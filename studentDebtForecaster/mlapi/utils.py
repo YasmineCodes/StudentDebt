@@ -1,17 +1,22 @@
+from studentDebtForecaster.settings import BASE_DIR
 import pandas as pd
 import pickle
+from pathlib import Path
+import os
 
-
-filename = '../../ml_models/rf_regressor1.pkl'
+p = BASE_DIR
+filename = os.path.join(p, 'ml_models/rf_regressor1.pkl')
 model = pickle.load(open(filename, 'rb'))
-city_cat_codes = pd.read_csv('../../ml_models/city_cat_codes.csv')
-stabbr_cat_codes = pd.read_csv('../../ml_models/stabbr_cat_codes.csv')
-accred_cat_codes = pd.read_csv('../../ml_models/accred_cat_codes.csv')
+city_cat_codes = pd.read_csv(os.path.join(p, 'ml_models/city_cat_codes.csv'))
+stabbr_cat_codes = pd.read_csv(
+    os.path.join(p, 'ml_models/stabbr_cat_codes.csv'))
+accred_cat_codes = pd.read_csv(
+    os.path.join(p, 'ml_models/accred_cat_codes.csv'))
 
 # Read in basic inst data
 # Read in reduced institutional data
 na_vals = ['Na', 'NaN', 'PrivacySuppressed']
-df = pd.read_csv('../../data/reduced_inst_data_with_cats.csv',
+df = pd.read_csv(os.path.join(p, 'data/reduced_inst_data_with_cats.csv'),
                  na_values=na_vals)
 selected_features = ['UNITID', 'INSTNM', 'CITY', 'STABBR', 'ACCREDAGENCY', 'CONTROL',
                      'COSTT4_A', 'COSTT4_P', 'TUITIONFEE_IN', 'TUITIONFEE_OUT', 'PFTFAC', 'PCTPELL']
@@ -57,7 +62,7 @@ def prep_ml_input(user_input):
     return inst_data
 
 
-def get_prediciton(X):
+def get_prediction(X):
     result = model.predict(X)
     # TODO: add error handling
     return round(result[0], 2)
