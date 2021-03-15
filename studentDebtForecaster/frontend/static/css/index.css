@@ -1,0 +1,31 @@
+body { 
+    min-height: 100vh;
+    margin: 0; 
+    padding: 0; 
+    font-family: sans-serif; 
+    background-color: #f3f4f7;
+    background-image: linear-gradient(315deg, #f3f4f7 0%, #caccd1 74%);
+}
+
+.nav-bar { 
+    margin: 1em;
+}
+
+/* .container { 
+    display: block; 
+    margin: 2em; 
+    border: 0.5em black; 
+    border-radius: 4px; 
+}
+
+.description { 
+    font-weight: 200;
+    display: flex; 
+    margin: auto; 
+}
+
+input { 
+    margin: 2em; 
+    background-color: #f3f4f7;
+    border-radius: 0.7em;
+} */
