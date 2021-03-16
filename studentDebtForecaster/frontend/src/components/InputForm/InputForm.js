@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }from 'react';
 import {
     Button,
     Grid,
@@ -17,9 +17,30 @@ import { SchoolInput } from './SchoolInput';
 import { PredictButton } from './PredictBotton'; 
 
 
-
+const getPrediction = ({ state, city, school }) => {
+    console.log(state, city, school); 
+        // const requestOptions = {
+        //     method: "GET",
+        //     headers: { "Content-Type": "application/json" },
+        //     body: JSON.stringify({
+        //             STABBR: state, CITY: city, INSTNM: school}),
+        // }; 
+        // fetch("/mlapi/prediction/", requestOptions)
+        //     .then((response) => {
+        //         if (!response.ok) {
+        //             console.log('Unable to get prediction...')
+        //         }
+        //         return response.json()
+        //     })
+        //     .then((data) => {
+        //         console.log(data.prediction); 
+        //     });
+    }
 
 export const InputForm = () => {
+    const [state, setState] = useState('');
+    const [city, setCity] = useState('');
+    const [school, setSchool] = useState(''); 
     return (
         <Grid container spacing={1}>
             <Grid item xs={12} align="center">
@@ -28,18 +49,17 @@ export const InputForm = () => {
                 </Typography> 
             </Grid>
             <Grid item xs={12} align="center">
-                <StateInput />
+                <StateInput setState={(s) => setState(s) }/>
             </Grid>
             <Grid item xs={12} align="center">
-                <CityInput />
+                <CityInput setCity={(c) => setCity(c) }/>
             </Grid>
             <Grid item xs={12} align="center">
-                <SchoolInput />
+                <SchoolInput setSchool={(sch) => setSchool(sch) }/>
             </Grid>
             <Grid item xs={12} align="center">
-                <PredictButton />
+                <PredictButton callBack={() => getPrediction({state: state, city: city, school: school})}/>
             </Grid>
-
         </Grid>   
     ); 
 }

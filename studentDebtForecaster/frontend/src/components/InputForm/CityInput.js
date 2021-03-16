@@ -18,7 +18,10 @@ const cities = [
         { label: 'Miami'},
         { label: 'Los Angeles' }]
 
-export const CityInput = () => {
+export const CityInput = ({ setCity }) => {
+    // const [value, setValue] = useState('');
+    // const [inputValue, setInputValue] = useState('');
+
     return (
         <Autocomplete
             id="country-select-demo"
@@ -31,11 +34,15 @@ export const CityInput = () => {
                     {option.label}
                 </React.Fragment>
             )}
+            onChange={(event, newValue) => {
+                        setCity(newValue);
+                    }}
             renderInput={(params) => (
                 <TextField
                     {...params}
                     label="Choose a city..."
                     variant="outlined"
+                    onChange={()=> setCity()}
                 // inputProps={{
                 //     ...params.inputProps,
                 //     autoComplete: 'new-password', // disable autocomplete and autofill

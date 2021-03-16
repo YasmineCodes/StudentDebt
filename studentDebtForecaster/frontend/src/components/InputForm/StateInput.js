@@ -18,7 +18,7 @@ const states = [
         { code: 'FL', label: 'Florida'},
         { code: 'CA', label: 'California' }]
 
-export const StateInput = () => {
+export const StateInput = ({setState}) => {
     return (
         <Autocomplete
             id="country-select-demo"
@@ -31,6 +31,9 @@ export const StateInput = () => {
                     {option.label}({option.code})
                 </React.Fragment>
             )}
+            onChange={(event, newValue) => {
+                        setState(newValue);
+                    }}
             renderInput={(params) => (
                 <TextField
                     {...params}

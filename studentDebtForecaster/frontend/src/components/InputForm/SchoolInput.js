@@ -18,7 +18,7 @@ const schools = [
         { label: 'University of Illinois'},
         { label: 'Brooklyn College' }]
 
-export const SchoolInput = () => {
+export const SchoolInput = ({setSchool}) => {
     return (
         <Autocomplete
             id="country-select-demo"
@@ -31,6 +31,9 @@ export const SchoolInput = () => {
                     {option.label}
                 </React.Fragment>
             )}
+            onChange={(event, newValue) => {
+                        setSchool(newValue);
+                    }}
             renderInput={(params) => (
                 <TextField
                     {...params}
