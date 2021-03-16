@@ -15,7 +15,8 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 
 const schools = [
         { label: 'Columbia University'},
-        { label: 'University of Illinois'},
+        { label: 'University of Illinois' },
+        {label: 'Glendale Community College'},
         { label: 'Brooklyn College' }]
 
 export const SchoolInput = ({setSchool}) => {

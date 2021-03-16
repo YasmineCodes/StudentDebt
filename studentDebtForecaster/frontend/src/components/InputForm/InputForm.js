@@ -18,23 +18,18 @@ import { PredictButton } from './PredictBotton';
 
 
 const getPrediction = ({ state, city, school }) => {
-    console.log(state, city, school); 
-        // const requestOptions = {
-        //     method: "GET",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify({
-        //             STABBR: state, CITY: city, INSTNM: school}),
-        // }; 
-        // fetch("/mlapi/prediction/", requestOptions)
-        //     .then((response) => {
-        //         if (!response.ok) {
-        //             console.log('Unable to get prediction...')
-        //         }
-        //         return response.json()
-        //     })
-        //     .then((data) => {
-        //         console.log(data.prediction); 
-        //     });
+    console.log(state, city, school);
+    var url = "/mlapi/prediction/"
+    fetch(url+'?STABBR=' +state.code + '&CITY=' + city + '&INSTNM=' + school)
+        .then((response) => {
+            if (!response.ok) {
+                console.log('Unable to get prediction...')
+            }
+            return response.json()
+        })
+        .then((data) => {
+            console.log(data.prediction); 
+        });
     }
 
 export const InputForm = () => {

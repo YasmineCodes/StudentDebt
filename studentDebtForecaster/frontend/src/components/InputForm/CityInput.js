@@ -14,9 +14,10 @@ import {
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 const cities = [
-        { label: 'New York City'},
-        { label: 'Miami'},
-        { label: 'Los Angeles' }]
+    { label: 'New York City' },
+    { label: 'Miami' },
+    { label: 'Los Angeles' }, 
+    { label: 'Glendale' }]; 
 
 export const CityInput = ({ setCity }) => {
     // const [value, setValue] = useState('');

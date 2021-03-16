@@ -14,9 +14,10 @@ import {
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 const states = [
-        { code: 'NY', label: 'New York'},
-        { code: 'FL', label: 'Florida'},
-        { code: 'CA', label: 'California' }]
+    { code: 'NY', label: 'New York' },
+    { code: 'FL', label: 'Florida' },
+    { code: 'AZ', label: 'Arizona' },
+    { code: 'CA', label: 'California' }]; 
 
 export const StateInput = ({setState}) => {
     return (
