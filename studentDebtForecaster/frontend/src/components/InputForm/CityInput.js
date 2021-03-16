@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
+// TODO: fill with correct cities, arranged by states 
 const cities = [
     { label: 'New York City' },
     { label: 'Miami' },

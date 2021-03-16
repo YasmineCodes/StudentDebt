@@ -52,6 +52,7 @@ def prep_ml_input(user_input):
     condition = (df['INSTNM'] == user_input['INSTNM']) & (
         df['CITY'] == user_input['CITY']) & (df['STABBR'] == user_input['STABBR'])
     inst_data = df[condition]
+    # TODO: handle no returned results, don't call fill_na_numeric if no data
     # Reduce inst_data df to keep only predictive_features
     inst_data = inst_data[PREDICTIVE_FEATURES]
     # fill null values if any in returned data

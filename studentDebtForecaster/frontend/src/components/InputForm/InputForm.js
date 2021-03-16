@@ -20,7 +20,7 @@ import { PredictButton } from './PredictBotton';
 const getPrediction = ({ state, city, school }) => {
     console.log(state, city, school);
     var url = "/mlapi/prediction/"
-    fetch(url+'?STABBR=' +state.code + '&CITY=' + city + '&INSTNM=' + school)
+    fetch(url+'?STABBR=' +state.code + '&CITY=' + city.label + '&INSTNM=' + school.label)
         .then((response) => {
             if (!response.ok) {
                 console.log('Unable to get prediction...')
@@ -31,7 +31,8 @@ const getPrediction = ({ state, city, school }) => {
             console.log(data.prediction); 
         });
     }
-
+//TODO: make sure city list is adjusted based on state, schools based on city
+//TODO: make all fields required 
 export const InputForm = () => {
     const [state, setState] = useState('');
     const [city, setCity] = useState('');

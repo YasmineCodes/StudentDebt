@@ -10,6 +10,7 @@ class Prediction(APIView):
         instnm = request.query_params['INSTNM']
         city = request.query_params['CITY']
         stabbr = request.query_params['STABBR']
+        print(instnm, city, stabbr)
         user_input = {'INSTNM': instnm, 'CITY': city, 'STABBR': stabbr}
 
         # Prep ml_model input data

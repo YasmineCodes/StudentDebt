@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
+
 const schools = [
         { label: 'Columbia University'},
         { label: 'University of Illinois' },
