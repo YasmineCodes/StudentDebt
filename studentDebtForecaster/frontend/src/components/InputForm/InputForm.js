@@ -17,23 +17,24 @@ import { SchoolInput } from './SchoolInput';
 import { PredictButton } from './PredictBotton'; 
 
 
-const getPrediction = ({ state, city, school }) => {
+const getPrediction = ({ state, city, school, formCallBack}) => {
     console.log(state, city, school);
     var url = "/mlapi/prediction/"
     fetch(url+'?STABBR=' +state.code + '&CITY=' + city.label + '&INSTNM=' + school.label)
         .then((response) => {
             if (!response.ok) {
+                //TODO: write user feedback for this 
                 console.log('Unable to get prediction...')
             }
             return response.json()
         })
         .then((data) => {
-            console.log(data.prediction); 
+            formCallBack(data.prediction); 
         });
     }
 //TODO: make sure city list is adjusted based on state, schools based on city
 //TODO: make all fields required 
-export const InputForm = () => {
+export const InputForm = ({formCallBack}) => {
     const [state, setState] = useState('');
     const [city, setCity] = useState('');
     const [school, setSchool] = useState(''); 
@@ -54,7 +55,7 @@ export const InputForm = () => {
                 <SchoolInput setSchool={(sch) => setSchool(sch) }/>
             </Grid>
             <Grid item xs={12} align="center">
-                <PredictButton callBack={() => getPrediction({state: state, city: city, school: school})}/>
+                <PredictButton buttonCallBack={() => getPrediction({state: state, city: city, school: school, formCallBack: formCallBack})}/>
             </Grid>
         </Grid>   
     ); 
