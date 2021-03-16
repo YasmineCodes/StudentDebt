@@ -13,7 +13,7 @@ import {
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-
+//TODO: add real list of schools, organized by state/cities 
 const schools = [
         { label: 'Columbia University'},
         { label: 'University of Illinois' },

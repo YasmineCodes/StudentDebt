@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
+//TODO: add relevant list of states 
 const states = [
     { code: 'NY', label: 'New York' },
     { code: 'FL', label: 'Florida' },

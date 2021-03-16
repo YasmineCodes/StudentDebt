@@ -4,6 +4,8 @@ import { Logo } from "./navbar/Logo";
 import { About } from "./navbar/About";
 import { InputForm } from "./InputForm/InputForm"; 
 
+//TODO: create function to switch between input form and results view 
+//TODO: Built results view 
 export default class App extends Component {
     constructor(props) {
         super(props); 
@@ -13,8 +15,6 @@ export default class App extends Component {
         return (
             <div>
                 <nav class='nav-bar' style={{}}>
-                {/* <p>one</p>
-                <p>Two</p> */}
                     <a><Logo /></a>
                     <a><About /></a>
                 </nav>
