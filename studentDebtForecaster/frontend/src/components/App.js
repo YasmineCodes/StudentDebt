@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import { Logo } from "./navbar/Logo";
 import { About } from "./navbar/About";
-import { InputForm } from "./InputForm/InputForm"; 
+import { InputForm } from "./InputForm/InputForm";
+import { PredictionView } from "./predictionView/PredictionView"; 
 
 //TODO: create function to switch between input form and results view 
 //TODO: Build results view 
@@ -11,20 +12,27 @@ export default class App extends Component {
         super(props);
         this.state = {
             inInputStage: true,
-            prediction: null, 
+            prediction: null,
+            state: '',
+            city: '',
+            school: ''
         }
     }
 
-    renderPrediction = (pred) => {
-        return <h3>{`Prediction: ${this.state.prediction}`}</h3>; 
+    renderPrediction = () => {
+        console.log('renderPrediction Called')
+        return <PredictionView data={this.state} />; 
+        // <h3>{`Prediction: ${this.state.prediction}`}</h3>;
     }
 
-    formCallBackFunction = (pred) => {
-        this.setState({ inInputStage: false, prediction: pred });
+    formCallBackFunction = ({prediction, state, city, school}) => {
+        this.setState({
+            inInputStage: false, prediction: prediction,
+            state: state, city: city, school: school});
     }
 
     renderInputFrom = () => {
-        return <InputForm formCallBack={(pred) => this.formCallBackFunction(pred)} />; 
+        return <InputForm formCallBack={({prediction, city, state, school}) => this.formCallBackFunction({prediction, city, state, school})} />; 
     }
 
     render() {

@@ -29,7 +29,7 @@ const getPrediction = ({ state, city, school, formCallBack}) => {
             return response.json()
         })
         .then((data) => {
-            formCallBack(data.prediction); 
+            formCallBack({prediction: data.prediction, city: city.label, state: state.label, school: school.label}); 
         });
     }
 //TODO: make sure city list is adjusted based on state, schools based on city
