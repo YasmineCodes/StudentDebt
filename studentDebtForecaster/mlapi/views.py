@@ -19,16 +19,17 @@ class Prediction(APIView):
         payload = {'prediction': get_prediction(input_data)}
         return Response(payload, status=status.HTTP_200_OK)
 
-class Cities(APIView): 
-    def get(self, request, format=None): 
+
+class Cities(APIView):
+    def get(self, request, format=None):
+        print(request)
         state = request.query_params['STABBR']
         response = get_cities(state)
-        if 'errors' in response: 
+        if 'errors' in response:
             return Response({'error': 'Unsuccessful'}, status=status.HTTP_404_NOT_FOUND)
         results = response.get('results')
-        cities =[]
-        for result in results: 
+        cities = []
+        for result in results:
             cities.append(result['school.city'])
         payload = {'cities': cities}
         return Response(payload, status=status.HTTP_200_OK)
-

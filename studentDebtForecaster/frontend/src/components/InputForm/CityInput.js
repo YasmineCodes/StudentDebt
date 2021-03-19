@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Button,
     Grid,
@@ -12,28 +12,28 @@ import {
     Collapse,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import { getCities } from './apiCalls'; 
 
 // TODO: fill with correct cities, arranged by states 
-const cities = [
+const tempCities = [
     { label: 'New York City' },
     { label: 'Miami' },
     { label: 'Los Angeles' }, 
     { label: 'Glendale' }]; 
 
-export const CityInput = ({ setCity }) => {
-    // const [value, setValue] = useState('');
-    // const [inputValue, setInputValue] = useState('');
-
+export const CityInput = ({ setCity, cities}) => {
     return (
         <Autocomplete
             id="country-select-demo"
             style={{ width: 300 }}
             options={cities}
             autoHighlight
-            getOptionLabel={(option) => option.label}
+            autoComplete
+            disabled={cities == []}
+            getOptionLabel={(option) => option}
             renderOption={(option) => (
                 <React.Fragment>
-                    {option.label}
+                    {option}
                 </React.Fragment>
             )}
             onChange={(event, newValue) => {

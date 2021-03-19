@@ -14,7 +14,8 @@ import {
 import { StateInput } from './StateInput';
 import { CityInput } from './CityInput';
 import { SchoolInput } from './SchoolInput';
-import { PredictButton } from './PredictBotton'; 
+import { PredictButton } from './PredictBotton';
+import { getCities } from './apiCalls'; 
 
 
 const getPrediction = ({ state, city, school, formCallBack}) => {
@@ -36,8 +37,10 @@ const getPrediction = ({ state, city, school, formCallBack}) => {
 //TODO: make all fields required 
 export const InputForm = ({formCallBack}) => {
     const [state, setState] = useState('');
+    const [cities, setCities] = useState([]); 
     const [city, setCity] = useState('');
     const [school, setSchool] = useState(''); 
+    console.log('rendering'); 
     return (
         <Grid container spacing={1}>
             <Grid item xs={12} align="center">
@@ -46,10 +49,10 @@ export const InputForm = ({formCallBack}) => {
                 </Typography> 
             </Grid>
             <Grid item xs={12} align="center">
-                <StateInput setState={(s) => setState(s) }/>
+                <StateInput setState={(s) => {setState(s); getCities(s, setCities)} }/>
             </Grid>
             <Grid item xs={12} align="center">
-                <CityInput setCity={(c) => setCity(c) }/>
+                <CityInput cities={cities} setCity={(c) => setCity(c) }/>
             </Grid>
             <Grid item xs={12} align="center">
                 <SchoolInput setSchool={(sch) => setSchool(sch) }/>

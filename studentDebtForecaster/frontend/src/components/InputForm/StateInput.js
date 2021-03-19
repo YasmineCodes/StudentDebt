@@ -34,6 +34,7 @@ export const StateInput = ({setState}) => {
                 </React.Fragment>
             )}
             onChange={(event, newValue) => {
+                        console.log(newValue)
                         setState(newValue);
                     }}
             renderInput={(params) => (
