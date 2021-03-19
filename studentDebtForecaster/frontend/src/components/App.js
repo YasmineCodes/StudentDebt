@@ -3,7 +3,8 @@ import { render } from "react-dom";
 import { Logo } from "./navbar/Logo";
 import { About } from "./navbar/About";
 import { InputForm } from "./InputForm/InputForm";
-import { PredictionView } from "./predictionView/PredictionView"; 
+import { PredictionView } from "./predictionView/PredictionView";
+import { MyParticles } from "./particles/Particles"; 
 
 //TODO: create function to switch between input form and results view 
 //TODO: Build results view 
@@ -35,9 +36,11 @@ export default class App extends Component {
         return <InputForm formCallBack={({prediction, city, state, school}) => this.formCallBackFunction({prediction, city, state, school})} />; 
     }
 
+
     render() {
         return (
             <div>
+                <MyParticles/>
                 <nav class='nav-bar' style={{}}>
                     <a><Logo/></a>
                     <a><About/></a>
