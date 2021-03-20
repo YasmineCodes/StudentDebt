@@ -1,17 +1,17 @@
-.Tilt { 
-    /* background-color: #5d4257;
+.Tilt {
+  /* background-color: #5d4257;
     background-image: linear-gradient(315deg, #5d4257 0%, #a5c7b7 74%); */
-    height: 80px;  
-    width: 80px;  
-    /* margin: 8px 8px; */
-    /* box-shadow: 2px 4px 10px grey;  
-    border-radius: 10px;  */
-    display: inline-flex;
-    align-items: center 
+  height: 80px;
+  width: 80px;
+  /* margin: 8px 8px; */
+  /* box-shadow: 2px 4px 10px grey;
+  border-radius: 10px; */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
-.Tilt-inner { 
-    margin-left: auto;
-    margin-right: auto;
-
+.Tilt-inner {
+  margin-left: auto;
+  margin-right: auto;
 }
