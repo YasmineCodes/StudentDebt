@@ -19,9 +19,9 @@ import { getCities, getSchools } from './apiCalls';
 
 
 const getPrediction = ({ state, city, school, formCallBack}) => {
-    console.log(state, city, school);
+    console.log(`from getPrediction: state = ${state}, city- ${city}, school- ${school}`);
     var url = "/mlapi/prediction/"
-    fetch(url+'?STABBR=' +state.code + '&CITY=' + city.label + '&INSTNM=' + school.label)
+    fetch(url+'?STABBR=' +state.code + '&CITY=' + city + '&INSTNM=' + school)
         .then((response) => {
             if (!response.ok) {
                 //TODO: write user feedback for this 
@@ -30,7 +30,7 @@ const getPrediction = ({ state, city, school, formCallBack}) => {
             return response.json()
         })
         .then((data) => {
-            formCallBack({prediction: data.prediction, city: city.label, state: state.label, school: school.label}); 
+            formCallBack({prediction: data.prediction, city: city, state: state.label, school: school}); 
         });
     }
 //TODO: make sure city list is adjusted based on state, schools based on city
