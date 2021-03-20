@@ -52,3 +52,4 @@ export const SchoolInput = ({setSchool, schools}) => {
         />); 
 
 }
+
