@@ -20,7 +20,7 @@ BASE_URL = 'https://api.data.gov/ed/collegescorecard/v1/'
 
 def get_schools(state, city):
     endpoint = 'schools'
-    fields = ['school.name']
+    fields = ['id', 'school.name']
     query_string = f'school.state={state}&school.city={city}&fields=' + \
         ','.join(fields)
     return execute_csc_api_request(endpoint, query_string)

@@ -22,8 +22,7 @@ class Prediction(APIView):
 
 class Cities(APIView):
     def get(self, request, format=None):
-        print(request)
-        state = request.query_params['STABBR']
+        state = request.query_params['state']
         response = get_cities(state)
         if 'errors' in response:
             return Response({'error': 'Unsuccessful'}, status=status.HTTP_404_NOT_FOUND)
@@ -32,4 +31,21 @@ class Cities(APIView):
         for result in results:
             cities.append(result['school.city'])
         payload = {'cities': cities}
+        return Response(payload, status=status.HTTP_200_OK)
+
+
+class Schools(APIView):
+    def get(self, request, format=None):
+        print(request)
+        state = request.query_params['state']
+        city = request.query_params['city']
+        print(city, state)
+        response = get_schools(state, city)
+        if 'errors' in response:
+            return Response({'error': 'Unsuccessful'}, status=status.HTTP_404_NOT_FOUND)
+        results = response.get('results')
+        schools = []
+        for result in results:
+            schools.append(result['school.name'])
+        payload = {'schools': schools}
         return Response(payload, status=status.HTTP_200_OK)

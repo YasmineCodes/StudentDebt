@@ -20,17 +20,19 @@ const schools = [
         {label: 'Glendale Community College'},
         { label: 'Brooklyn College' }]
 
-export const SchoolInput = ({setSchool}) => {
+export const SchoolInput = ({setSchool, schools}) => {
     return (
         <Autocomplete
             id="country-select-demo"
             style={{ width: 300 }}
             options={schools}
             autoHighlight
-            getOptionLabel={(option) => option.label}
+            autoComplete
+            disabled={schools == []}
+            getOptionLabel={(option) => option}
             renderOption={(option) => (
                 <React.Fragment>
-                    {option.label}
+                    {option}
                 </React.Fragment>
             )}
             onChange={(event, newValue) => {
