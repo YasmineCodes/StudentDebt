@@ -28,7 +28,7 @@ export const SchoolInput = ({setSchool, schools}) => {
             options={schools}
             autoHighlight
             autoComplete
-            disabled={schools == []}
+            disabled={schools.length<1}
             getOptionLabel={(option) => option}
             renderOption={(option) => (
                 <React.Fragment>

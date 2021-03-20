@@ -29,7 +29,7 @@ export const CityInput = ({ setCity, cities}) => {
             options={cities}
             autoHighlight
             autoComplete
-            disabled={cities == []}
+            disabled={cities.length<1}
             getOptionLabel={(option) => option}
             renderOption={(option) => (
                 <React.Fragment>
