@@ -5,7 +5,8 @@ import { Navbar } from "./navbar/Navbar";
 import { About } from "./About"
 import { InputForm } from "./InputForm/InputForm";
 import { PredictionView } from "./predictionView/PredictionView";
-import { MyParticles } from "./particles/Particles"; 
+import { MyParticles } from "./particles/Particles";
+
 
 //TODO: create function to switch between input form and results view 
 //TODO: Build results view 
@@ -41,7 +42,7 @@ export default class App extends Component {
     render() {
         return (
             <BrowserRouter>
-                <div>
+                <div >
                     <MyParticles/>
                     <Navbar />
                     <Switch>

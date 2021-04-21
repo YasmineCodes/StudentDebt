@@ -11,6 +11,7 @@ import {
     RadioGroup,
     Collapse,
 } from '@material-ui/core';
+import "./predictionView.css"; 
 
 
 
@@ -19,7 +20,7 @@ export const PredictionView = ({data}) => {
     // const [prediction, setPrediction] = useState(null);
     
     return (
-        <Grid container spacing={1}>
+        <Grid id="prediction-container" container spacing={1} direction="column" justify="center" alignItems="center">
             <Grid item xs={12} align="center">
                 <Typography component="h3" variant="h4">
                     {'Here is your forecast:'}
