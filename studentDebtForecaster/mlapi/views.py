@@ -30,6 +30,7 @@ class Cities(APIView):
         cities = []
         for result in results:
             cities.append(result['school.city'])
+        cities = list(set(cities))
         payload = {'cities': cities}
         return Response(payload, status=status.HTTP_200_OK)
 
@@ -47,5 +48,6 @@ class Schools(APIView):
         schools = []
         for result in results:
             schools.append(result['school.name'])
+        schools = list(set(schools))
         payload = {'schools': schools}
         return Response(payload, status=status.HTTP_200_OK)

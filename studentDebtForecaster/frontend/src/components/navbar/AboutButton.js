@@ -5,7 +5,7 @@ import React from 'react';
 import './navbar.css'; 
 
 
-export const About = () => {
+export const AboutButton = () => {
     return (
             <Tilt className="Tilt" options={{ max : 70 }} style={{}} >
                 <div className="Tilt-inner"> <InfoOutlinedIcon /> </div>
