@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom"; 
+import { BrowserRouter, Route, Switch } from "react-router-dom"; 
 import { render } from "react-dom";
 import { Navbar } from "./navbar/Navbar"; 
 import { About } from "./About"
@@ -43,10 +43,12 @@ export default class App extends Component {
             <BrowserRouter>
                 <div>
                     <MyParticles/>
-                    <Navbar/>
-                    {/* {this.state.inInputStage ? this.renderInputFrom() : this.renderPrediction()} */}
-                    <Route exact path="/" render={() => this.renderInputFrom() } />
-                    <Route path="/about" component={About}/>
+                    <Navbar />
+                    <Switch>
+                        <Route exact path="/" render={() => this.renderInputFrom()} />
+                        <Route path="/prediction" render={() => this.renderPrediction() }/>
+                        <Route path="/about" component={About} />
+                    </Switch>
                 </div>
             </BrowserRouter>
         );

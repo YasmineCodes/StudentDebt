@@ -1,4 +1,5 @@
-import React, { useState }from 'react';
+import React, { useState } from 'react';
+import { useHistory } from "react-router";
 import {
     Button,
     Grid,
@@ -30,10 +31,12 @@ const getPrediction = ({ state, city, school, formCallBack}) => {
             return response.json()
         })
         .then((data) => {
-            formCallBack({prediction: data.prediction, city: city, state: state.label, school: school}); 
+            formCallBack({ prediction: data.prediction, city: city, state: state.label, school: school });
+
         });
-    }
-//TODO: make sure city list is adjusted based on state, schools based on city
+}
+
+
 //TODO: make all fields required 
 export const InputForm = ({formCallBack}) => {
     const [state, setState] = useState('');
@@ -41,7 +44,12 @@ export const InputForm = ({formCallBack}) => {
     const [schools, setSchools] = useState([]); 
     const [city, setCity] = useState('');
     const [school, setSchool] = useState(''); 
-    console.log('rendering'); 
+    const history = useHistory();
+    
+    const onPredict = () => {
+       getPrediction({ state: state, city: city, school: school, formCallBack: formCallBack });
+        history.push({ pathname: "/prediction" }); 
+    }
     return (
         <Grid container spacing={1}>
             <Grid item xs={12} align="center">
@@ -59,7 +67,7 @@ export const InputForm = ({formCallBack}) => {
                 <SchoolInput schools={schools} setSchool={(sch) => setSchool(sch) }/>
             </Grid>
             <Grid item xs={12} align="center">
-                <PredictButton buttonCallBack={() => getPrediction({state: state, city: city, school: school, formCallBack: formCallBack})}/>
+                <PredictButton buttonCallBack={() => onPredict() }/>
             </Grid>
         </Grid>   
     ); 

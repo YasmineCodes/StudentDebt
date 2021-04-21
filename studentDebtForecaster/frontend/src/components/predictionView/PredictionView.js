@@ -14,7 +14,6 @@ import {
 
 
 
-//TODO: make sure city list is adjusted based on state, schools based on city
 //TODO: make all fields required 
 export const PredictionView = ({data}) => {
     // const [prediction, setPrediction] = useState(null);

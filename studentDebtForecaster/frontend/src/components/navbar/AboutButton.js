@@ -7,7 +7,7 @@ import './navbar.css';
 
 export const AboutButton = () => {
     return (
-            <Tilt className="Tilt" options={{ max : 70 }} style={{}} >
+            <Tilt className="Tilt aboutButton" options={{ max : 70 }} style={{}} >
                 <div className="Tilt-inner"> <InfoOutlinedIcon /> </div>
             </Tilt>
     ); 

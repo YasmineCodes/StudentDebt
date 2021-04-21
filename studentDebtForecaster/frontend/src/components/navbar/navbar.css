@@ -15,3 +15,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+a:visited,
+.aboutButton {
+  color: black;
+}
