@@ -23,7 +23,10 @@ export default class App extends Component {
     }
 
     renderPrediction = () => {
-        console.log('renderPrediction Called')
+        console.log(`renderPrediction Called. inputstage: ${this.state.inInputStage}`)
+        if (this.state.inInputStage) {
+            return this.renderInputFrom();
+        }
         return <PredictionView data={this.state} />; 
         // <h3>{`Prediction: ${this.state.prediction}`}</h3>;
     }

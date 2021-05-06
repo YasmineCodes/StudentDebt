@@ -20,7 +20,7 @@ import { getCities, getSchools } from './apiCalls';
 
 
 const getPrediction = ({ state, city, school, formCallBack}) => {
-    console.log(`from getPrediction: state = ${state}, city- ${city}, school- ${school}`);
+    console.log(`from getPrediction: state = ${state.code}, city- ${city}, school- ${school}`);
     var url = "/mlapi/prediction/"
     fetch(url+'?STABBR=' +state.code + '&CITY=' + city + '&INSTNM=' + school)
         .then((response) => {
@@ -47,6 +47,10 @@ export const InputForm = ({formCallBack}) => {
     const history = useHistory();
     
     const onPredict = () => {
+        //Do nothing if fields are not completed 
+        if (state == '' || city == '' || school == '') {
+            return; 
+        }
        getPrediction({ state: state, city: city, school: school, formCallBack: formCallBack });
         history.push({ pathname: "/prediction" }); 
     }
