@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
-from .utils import prep_ml_input, get_prediction
+from .utils import prep_ml_input, get_prediction, df
 from .college_scorecard import get_cities, get_schools
 
 
@@ -47,7 +47,8 @@ class Schools(APIView):
         results = response.get('results')
         schools = []
         for result in results:
-            schools.append(result['school.name'])
+            if df.INSTNM[df.INSTNM == result['school.name']].count():
+                schools.append(result['school.name'])
         schools = list(set(schools))
         payload = {'schools': schools}
         return Response(payload, status=status.HTTP_200_OK)
