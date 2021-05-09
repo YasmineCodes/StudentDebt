@@ -29,7 +29,7 @@ export const PredictionView = ({data}) => {
             <CardActionArea>
                 <CardMedia
                     className="media"
-                    image="/static/images/BCFlag.jpeg"
+                    image="https://logo.clearbit.com/www.brooklyn.cuny.edu"
                     title="placeholder"
                 />
                 <CardContent>

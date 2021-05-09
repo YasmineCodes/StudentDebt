@@ -12,14 +12,7 @@ import {
     Collapse,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { getCities } from './apiCalls'; 
 
-// TODO: fill with correct cities, arranged by states 
-// const tempCities = [
-//     { label: 'New York City' },
-//     { label: 'Miami' },
-//     { label: 'Los Angeles' }, 
-//     { label: 'Glendale' }]; 
 
 export const CityInput = ({ setCity, cities}) => {
     return (
@@ -44,11 +37,7 @@ export const CityInput = ({ setCity, cities}) => {
                     {...params}
                     label="Choose a city..."
                     variant="outlined"
-                    onChange={()=> setCity()}
-                // inputProps={{
-                //     ...params.inputProps,
-                //     autoComplete: 'new-password', // disable autocomplete and autofill
-                // }}               
+                    onChange={()=> setCity()}       
                 />
             )}
         />); 

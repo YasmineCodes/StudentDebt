@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
 from .utils import prep_ml_input, get_prediction, df
-from .college_scorecard import get_cities, get_schools
+from .college_scorecard import get_cities, get_school_logo, get_schools, get_school_url
 
 
 class Prediction(APIView):
@@ -14,9 +14,21 @@ class Prediction(APIView):
         print(instnm, city, stabbr)
         user_input = {'INSTNM': instnm, 'CITY': city, 'STABBR': stabbr}
 
+        # get additional content to return with data
+        response = get_school_url(stabbr, city, instnm)
+        results = response.get('results')
+        school_url = results[0]['school.school_url']
+        print(f'This is the school url returned to prediction: {school_url}')
+        payload = {'url': school_url}
+        # school_logo = get_school_logo(school_url)
+        # print(school_logo[0]['logo'])
+        # payload['logo'] = school_logo
+
         # Prep ml_model input data
         input_data = prep_ml_input(user_input=user_input)
-        payload = {'prediction': get_prediction(input_data)}
+
+        # get prediction and add it to payload
+        payload['prediction'] = get_prediction(input_data)
         return Response(payload, status=status.HTTP_200_OK)
 
 
