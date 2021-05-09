@@ -37,6 +37,7 @@ def fill_na_numeric(dataframe, columns, df_full):
 
 
 def fill_cat_nums(df):
+    print(df.shape)
     df['STABBR'] = stabbr_cat_codes[stabbr_cat_codes.STABBR ==
                                     df.STABBR.values[0]].STABBR_code.values[0]
     df['ACCREDAGENCY'] = accred_cat_codes[accred_cat_codes.ACCREDAGENCY ==
