@@ -33,12 +33,17 @@ export const PredictionView = ({data}) => {
                     title="placeholder"
                 />
                 <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                    Placeholder Title
+                <Typography variant="h5" component="h6">
+                        School
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                    placeholder text: Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                    across all continents except Antarctica
+                <Typography gutterBottom variant="h6" component="h5" color="textSecondary">
+                    {`${data.school} \n ${data.city}, ${data.state}`}
+                </Typography>
+                <Typography  variant="h5" component="h6">
+                        Predicted Debt 
+                </Typography>
+                <Typography variant="h6" component="h5" color="textSecondary" >
+                    {`\$${data.prediction}`}
                 </Typography>
                 </CardContent>
             </CardActionArea>
@@ -51,22 +56,6 @@ export const PredictionView = ({data}) => {
                 </Button>
             </CardActions>
         </Card>
-
-
-
-        // {/* <Grid id="prediction-container" container spacing={1} direction="column" justify="center" alignItems="center">
-        //     <Grid item xs={12} align="center">
-        //         <Typography component="h3" variant="h4">
-        //             {'Here is your forecast:'}
-        //         </Typography> 
-        //     </Grid>
-        //     <Grid item xs={12} align="center">
-        //        <Typography component="h5" variant="h4">
-        //             {`The median predicted debt for students 
-        //                 attending ${data.school} in ${data.city}, ${data.state} is \$${data.prediction}`}
-        //         </Typography> 
-        //     </Grid>
-        // </Grid>    */}
     ); 
 }
 
