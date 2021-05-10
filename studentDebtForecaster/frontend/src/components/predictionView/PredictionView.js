@@ -41,7 +41,9 @@ export const PredictionView = ({data}) => {
                         School
                 </Typography>
                 <Typography gutterBottom variant="h6" component="h5" color="textSecondary">
-                    {`${data.school} \n ${data.city}, ${data.state}`}
+                            {`${data.school}`}
+                            <br></br>
+                            {`${data.city}, ${data.state}`}
                 </Typography>
                 <Typography  variant="h5" component="h6">
                         Predicted Debt 
@@ -52,11 +54,11 @@ export const PredictionView = ({data}) => {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
-                Share
+                <Button size="small" color="primary" href={`https://${data.url}`} target="_blank">
+                Visit School Website
                 </Button>
-                <Button size="small" color="primary">
-                Learn More
+                <Button size="small" color="primary" href={'/'} >
+                Get Another Prediction
                 </Button>
             </CardActions>
             </Card>
