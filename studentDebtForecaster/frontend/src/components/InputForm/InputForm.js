@@ -31,7 +31,7 @@ const getPrediction = ({ state, city, school, formCallBack}) => {
             return response.json()
         })
         .then((data) => {
-            console.log(data.url, data.logo); 
+            console.log(data.url, data.image); 
             formCallBack({ prediction: data.prediction, city: city, state: state.label, school: school });
 
         });

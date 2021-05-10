@@ -25,11 +25,15 @@ export const PredictionView = ({data}) => {
     // const [prediction, setPrediction] = useState(null);
     
     return (
+        <div>
+            {/* <img src={require('https://logo.clearbit.com/www.brooklyn.cuny.edu')} /> */}
         <Card id="prediction-container">
+            
             <CardActionArea>
-                <CardMedia
+                    <CardMedia
+                        
                     className="media"
-                    image="https://logo.clearbit.com/www.brooklyn.cuny.edu"
+                    image={'http://api.linkpreview.net/?key=d29d9a2c1b0d801256a7c409376e57f4&q=www.brooklyn.cuny.edu'}
                     title="placeholder"
                 />
                 <CardContent>
@@ -55,7 +59,8 @@ export const PredictionView = ({data}) => {
                 Learn More
                 </Button>
             </CardActions>
-        </Card>
+            </Card>
+            </div>
     ); 
 }
 

@@ -1,8 +1,12 @@
-from studentDebtForecaster.settings import BASE_DIR
+from studentDebtForecaster.settings import BASE_DIR, key_path
 import pandas as pd
 import pickle
 from pathlib import Path
 import os
+from requests import get
+
+
+LINKPREVIEW_API_KEY = open(os.path.join(key_path, "linkpreview_key")).read()
 
 p = BASE_DIR
 filename = os.path.join(p, 'ml_models/rf_regressor1.pkl')
@@ -12,6 +16,7 @@ stabbr_cat_codes = pd.read_csv(
     os.path.join(p, 'ml_models/stabbr_cat_codes.csv'))
 accred_cat_codes = pd.read_csv(
     os.path.join(p, 'ml_models/accred_cat_codes.csv'))
+
 
 # Read in basic inst data
 # Read in reduced institutional data
@@ -68,3 +73,12 @@ def get_prediction(X):
     result = model.predict(X)
     # TODO: add error handling
     return round(result[0], 2)
+
+
+def get_school_image(url):
+    linkpreview_api_url = 'http://api.linkpreview.net/?key=' + LINKPREVIEW_API_KEY
+    query = "&q=" + url
+    linkpreview_api_url = linkpreview_api_url + query
+    print(linkpreview_api_url)
+    response = get(linkpreview_api_url)
+    return response.json()
