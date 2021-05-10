@@ -6,6 +6,8 @@ import { About } from "./About"
 import { InputForm } from "./InputForm/InputForm";
 import { PredictionView } from "./predictionView/PredictionView";
 import { MyParticles } from "./particles/Particles";
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import  theme from "./theme";
 
 
 //TODO: create function to switch between input form and results view 
@@ -44,17 +46,19 @@ export default class App extends Component {
 
     render() {
         return (
-            <BrowserRouter>
-                <div >
-                    <MyParticles/>
-                    <Navbar />
-                    <Switch>
-                        <Route exact path="/" render={() => this.renderInputFrom()} />
-                        <Route path="/prediction" render={() => this.renderPrediction() }/>
-                        <Route path="/about" component={About} />
-                    </Switch>
-                </div>
-            </BrowserRouter>
+            <ThemeProvider theme={theme}>
+                <BrowserRouter>
+                    <div >
+                        <MyParticles/>
+                        <Navbar />
+                        <Switch>
+                            <Route exact path="/" render={() => this.renderInputFrom()} />
+                            <Route path="/prediction" render={() => this.renderPrediction() }/>
+                            <Route path="/about" component={About} />
+                        </Switch>
+                    </div>
+                </BrowserRouter>
+            </ThemeProvider>
         );
                 
     }
