@@ -41,6 +41,7 @@ class Cities(APIView):
         for result in results:
             cities.append(result['school.city'])
         cities = list(set(cities))
+        cities.sort()
         payload = {'cities': cities}
         return Response(payload, status=status.HTTP_200_OK)
 
@@ -60,5 +61,6 @@ class Schools(APIView):
             if df.INSTNM[df.INSTNM == result['school.name']].count():
                 schools.append(result['school.name'])
         schools = list(set(schools))
+        schools.sort()
         payload = {'schools': schools}
         return Response(payload, status=status.HTTP_200_OK)

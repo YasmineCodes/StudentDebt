@@ -21,6 +21,7 @@ import "./predictionView.css";
 
 
 //TODO: make all fields required 
+//TODO: handle no image at link
 export const PredictionView = ({data}) => {
     // const [prediction, setPrediction] = useState(null);
     console.log(data)
@@ -49,7 +50,7 @@ export const PredictionView = ({data}) => {
                         Predicted Debt 
                 </Typography>
                 <Typography variant="h6" component="h5" color="textSecondary" >
-                    {`\$${data.prediction}`}
+                    {new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(data.prediction)}
                 </Typography>
                 </CardContent>
             </CardActionArea>
