@@ -31,14 +31,14 @@ export default class App extends Component {
         // <h3>{`Prediction: ${this.state.prediction}`}</h3>;
     }
 
-    formCallBackFunction = ({prediction, state, city, school}) => {
+    formCallBackFunction = ({url, image, prediction, state, city, school}) => {
         this.setState({
-            inInputStage: false, prediction: prediction,
+            inInputStage: false, url: url, image: image, prediction: prediction,
             state: state, city: city, school: school});
     }
 
     renderInputFrom = () => {
-        return <InputForm formCallBack={({prediction, city, state, school}) => this.formCallBackFunction({prediction, city, state, school})} />; 
+        return <InputForm formCallBack={({url, image, prediction, city, state, school}) => this.formCallBackFunction({url, image, prediction, city, state, school})} />; 
     }
 
 

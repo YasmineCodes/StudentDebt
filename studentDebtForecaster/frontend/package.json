@@ -32,6 +32,7 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "react-particles-js": "^3.4.1",
     "react-tilt": "^0.1.4",
+    "request": "^2.79.0",
     "tachyons": "^4.12.0"
   }
 }

@@ -23,19 +23,19 @@ import "./predictionView.css";
 //TODO: make all fields required 
 export const PredictionView = ({data}) => {
     // const [prediction, setPrediction] = useState(null);
-    
+    console.log(data)
     return (
         <div>
-            {/* <img src={require('https://logo.clearbit.com/www.brooklyn.cuny.edu')} /> */}
+            {/* <img src={require(data.image)} /> */}
         <Card id="prediction-container">
             
             <CardActionArea>
                     <CardMedia
                         
                     className="media"
-                    image={'http://api.linkpreview.net/?key=d29d9a2c1b0d801256a7c409376e57f4&q=www.brooklyn.cuny.edu'}
+                    image={data.image}
                     title="placeholder"
-                />
+                ></CardMedia>
                 <CardContent>
                 <Typography variant="h5" component="h6">
                         School
