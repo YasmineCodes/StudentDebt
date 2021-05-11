@@ -34,7 +34,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['collegedebtforecast.herokuapp.com', '0.0.0.0']
 
 
-# Application definition
+# Application definition --
 
 INSTALLED_APPS = [
     'django.contrib.admin',
