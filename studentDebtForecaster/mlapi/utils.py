@@ -6,7 +6,7 @@ import os
 from requests import get
 
 
-LINKPREVIEW_API_KEY = open(os.path.join(key_path, "linkpreview_key")).read()
+LINKPREVIEW_API_KEY = os.getenv("LINKPREVIEW_KEY")
 
 p = BASE_DIR
 filename = os.path.join(p, 'ml_models/rf_regressor1.pkl')

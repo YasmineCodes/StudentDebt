@@ -8,9 +8,15 @@ https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/
 """
 
 import os
+from dotenv import load_dotenv, find_dotenv
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'studentDebtForecaster.settings')
+project_dir = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
+load_dotenv(os.path.join(project_dir, '.env'))
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                      'studentDebtForecaster.settings')
 
 application = get_wsgi_application()

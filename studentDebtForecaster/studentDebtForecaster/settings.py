@@ -9,9 +9,13 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+from dotenv import load_dotenv, find_dotenv
 from pathlib import Path
 import os
+
+PROJECT_DIR = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
+load_dotenv(os.path.join(PROJECT_DIR, '.env'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 key_path = BASE_DIR / 'keys/'
-SECRET_KEY = open(os.path.join(key_path, "django_sk")).read()
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -116,6 +121,9 @@ USE_L10N = True
 USE_TZ = True
 
 
+STATICFILES_DIRS = [os.path.join(
+    PROJECT_DIR, 'studentDebtForecaster', 'frontend', 'static')]
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static_collected')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
