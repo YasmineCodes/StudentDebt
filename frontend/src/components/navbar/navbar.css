@@ -1,0 +1,17 @@
+.Tilt {
+  height: 80px;
+  width: 80px;
+  padding-top: 10px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.Tilt-inner {
+  margin-left: auto;
+  margin-right: auto;
+}
+a:visited,
+.aboutButton {
+  color: black;
+}
