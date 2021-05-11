@@ -7,8 +7,8 @@ import { InputForm } from "./InputForm/InputForm";
 import { PredictionView } from "./predictionView/PredictionView";
 import { MyParticles } from "./particles/Particles";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import  theme from "./theme";
-
+import theme from "./theme";
+import Footer from "./Footer"; 
 
 //TODO: create function to switch between input form and results view 
 //TODO: Build results view 
@@ -58,6 +58,7 @@ export default class App extends Component {
                         </Switch>
                     </div>
                 </BrowserRouter>
+                <Footer/>
             </ThemeProvider>
         );
                 
