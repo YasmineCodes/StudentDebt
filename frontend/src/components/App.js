@@ -8,7 +8,8 @@ import { PredictionView } from "./predictionView/PredictionView";
 import { MyParticles } from "./particles/Particles";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import theme from "./theme";
-import Footer from "./Footer"; 
+import Footer from "./Footer";
+import "./app.css"; 
 
 //TODO: create function to switch between input form and results view 
 //TODO: Build results view 
@@ -46,9 +47,10 @@ export default class App extends Component {
 
     render() {
         return (
+            <div>
             <ThemeProvider theme={theme}>
                 <BrowserRouter>
-                    <div style={{'backgroundImage': 'linear-gradient(315deg, #f3f4f7 0%, #caccd1 74%'}}>
+                    <div >
                         <MyParticles/>
                         <Navbar />
                         <Switch>
@@ -59,7 +61,8 @@ export default class App extends Component {
                     </div>
                 </BrowserRouter>
                 <Footer/>
-            </ThemeProvider>
+                </ThemeProvider>
+                </div>
         );
                 
     }
