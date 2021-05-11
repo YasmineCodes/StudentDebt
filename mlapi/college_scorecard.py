@@ -5,7 +5,7 @@ import os
 PROJECT_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
 # College Scorecard API Key
-CSC_API_KEY = os.getenv("COLLEGE_SCORECARD_KEY")
+CSC_API_KEY = os.environ("COLLEGE_SCORECARD_KEY")
 
 # College Scorecard API URL
 BASE_URL = 'https://api.data.gov/ed/collegescorecard/v1/'
