@@ -1,7 +1,9 @@
-from studentDebtForecaster.settings import BASE_DIR, key_path
+# from studentDebtForecaster.settings import BASE_DIR, key_path
 from requests import get
 import os
 
+PROJECT_DIR = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
 # College Scorecard API Key
 CSC_API_KEY = os.getenv("COLLEGE_SCORECARD_KEY")
 
