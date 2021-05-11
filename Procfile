@@ -1,1 +1,1 @@
-web: gunicorn studentDebtForecaster.wsgi:application --log-file -
+web: gunicorn studentDebtForecaster.wsgi
