@@ -123,7 +123,7 @@ USE_TZ = True
 
 
 STATICFILES_DIRS = [os.path.join(
-    PROJECT_DIR, 'studentDebtForecaster', 'frontend', 'static')]
+    PROJECT_DIR, 'frontend', 'static')]
 STATIC_ROOT = os.path.join(
     PROJECT_DIR, 'studentDebtForecaster', 'static_collected')
 # Static files (CSS, JavaScript, Images)

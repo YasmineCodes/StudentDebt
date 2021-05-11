@@ -48,7 +48,7 @@ export default class App extends Component {
         return (
             <ThemeProvider theme={theme}>
                 <BrowserRouter>
-                    <div >
+                    <div style={{'backgroundImage': 'linear-gradient(315deg, #f3f4f7 0%, #caccd1 74%'}}>
                         <MyParticles/>
                         <Navbar />
                         <Switch>
