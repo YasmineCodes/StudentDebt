@@ -35,6 +35,14 @@ def get_school_url(state, city, instnm):
     return execute_csc_api_request(endpoint, query_string)
 
 
+def get_school_default_rate(state, city, instnm):
+    endpoint = 'repayment'
+    fields = ['repayment.2_yr_default_rate']
+    query_string = f'school.state={state}&school.city={city}&school.name={instnm}&fields=' + \
+        ','.join(fields)
+    return execute_csc_api_request(endpoint, query_string)
+
+
 def execute_csc_api_request(endpoint, query):
     query_string = f'?api_key={CSC_API_KEY}&'
     query_string = query_string+query

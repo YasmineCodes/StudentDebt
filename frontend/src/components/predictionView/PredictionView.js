@@ -1,4 +1,4 @@
-import React, { useState }from 'react';
+import React from 'react';
 import {
     Button,
     Card,
@@ -6,15 +6,7 @@ import {
     CardActions,
     CardContent,
     CardMedia,
-    Grid,
     Typography,
-    TextField,
-    FormControl,
-    FormControlLabel,
-    FormHelperText,
-    Radio,
-    RadioGroup,
-    Collapse,
 } from '@material-ui/core';
 import "./predictionView.css"; 
 
@@ -35,7 +27,7 @@ export const PredictionView = ({data}) => {
                         
                     className="media"
                     image={data.image}
-                    title="placeholder"
+                    title={data.school}
                 ></CardMedia>
                 <CardContent>
                 <Typography variant="h5" component="h6">
